@@ -23,6 +23,10 @@ like `"file"` → `"file (1)"`, `"file (2)"`, and so on.
 
 ---
 
+### 📦 Also Available
+
+> Need it for PHP? Check out [Namecrement for PHP](https://github.com/HichemTab-tech/Namecrement-php)!
+
 ## 📦 Installation
 
 ```bash
