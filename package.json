@@ -2,7 +2,7 @@
   "name": "namecrement",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
+  "description": "A smart JavaScript utility that generates unique incremental names, preventing naming collisions by automatically appending incremental suffixes.",
   "keywords": [
     "unique",
     "increment",
