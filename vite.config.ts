@@ -5,7 +5,7 @@ import dts from 'vite-plugin-dts';
 
 
 const bannerContent = `/*!
-* namecrement v0.1.0
+* namecrement v1.0.0
 * (c) Hichem Taboukouyout
 * Released under the MIT License.
 * Github: github.com/HichemTab-tech/Namecrement

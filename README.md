@@ -1,5 +1,15 @@
 # Namecrement
 
+<p align="center">
+
+![Tests](https://github.com/HichemTab-tech/Namecrement/workflows/Tests/badge.svg) 
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/HichemTab-tech/Namecrement/releases) [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/HichemTab-tech/Namecrement/blob/main/LICENSE)
+![npm](https://img.shields.io/npm/v/namecrement)
+![license](https://img.shields.io/npm/l/namecrement)
+[![NPM Version](https://img.shields.io/npm/v/namecrement.svg)](https://www.npmjs.com/package/namecrement)
+
+</p>
+
 **Smart and simple unique name generator.**  
 If a name already exists, Namecrement automatically increments it,
 like `"file"` → `"file (1)"`, `"file (2)"`, and so on.
