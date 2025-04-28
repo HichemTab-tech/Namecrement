@@ -11,7 +11,7 @@ export default defineConfig({
     resolve: {
         alias: {
             // Allow your demo to resolve your library directly
-            '%PACKAGE-NAME%': resolve(__dirname, '../src'),
+            'namecrement': resolve(__dirname, '../src'),
         },
     },
     server: {
