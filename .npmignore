@@ -5,4 +5,5 @@ src
 tsconfig.json
 package-lock.json
 pnpm-lock.yaml
+pnp-workspace.yaml
 demo/

@@ -1,7 +1,8 @@
-name: Publish Package to npmjs
+name: Test the package
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - master
 jobs:
   build:
     permissions:
@@ -26,11 +27,3 @@ jobs:
 
       - name: Test project
         run: pnpm run test
-
-      - name: Build project
-        run: pnpm run build
-
-      - name: Publish to npm
-        run: pnpm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

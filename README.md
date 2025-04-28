@@ -1,101 +1,78 @@
 # Namecrement
 
-A brief and clear description of your package. Explain what problem it solves and why users might find it useful.
+**Smart and simple unique name generator.**  
+If a name already exists, Namecrement automatically increments it,
+like `"file"` → `"file (1)"`, `"file (2)"`, and so on.
 
 ---
 
-## 🚀 Getting Started
+## ✨ Features
 
-Start by installing the package via your preferred package manager:
+- Automatically avoids naming collisions
+- Smart incremental naming (`(1)`, `(2)`, etc.)
+- Lightweight and dependency-free
+- Works for filenames, labels, identifiers, and more
 
-```sh
+---
+
+## 📦 Installation
+
+```bash
 npm install namecrement
 ```
 
-or, if using pnpm:
+or
 
-```sh
+```bash
 pnpm add namecrement
 ```
 
 ---
 
-## 📖 Usage
-
-Show a straightforward example of how to quickly use the package:
+## 🚀 Usage
 
 ```javascript
-import { exampleFunction } from 'namecrement';
+import { namecrement } from 'namecrement';
 
-exampleFunction();
+// Example list of existing names
+const existing = ['file', 'file (1)', 'file (2)'];
+
+// Generate a unique name
+const newName = namecrement('file', existing);
+
+console.log(newName); // Output: "file (3)"
 ```
 
 ---
 
-## ⚙️ API Reference
+## 📚 API
 
-### 🚩 **Function `exampleFunction(args)`**
+### `namecrement(baseName: string, existingNames: string[]): string`
 
-Description of what this function/method does and how to use it.
+| Parameter       | Type       | Description                        |
+|-----------------|------------|------------------------------------|
+| `baseName`      | `string`   | The proposed name                  |
+| `existingNames` | `string[]` | The list of names to check against |
 
-**Parameters:**
+Returns a **unique** name based on the proposed one.
 
-| Parameter   | Type   | Description                        |
-|-------------|--------|------------------------------------|
-| `args`      | any    | Description of the arguments.      |
+---
 
-**Returns:**
-
-- Type: `any`
-Briefly describe the returned value or output.
-
-**Example:**
+## 🛠️ Examples
 
 ```javascript
-import { exampleFunction } from 'namecrement';
+namecrement('report', ['report', 'report (1)']); 
+// → 'report (2)'
 
-const result = exampleFunction('Hello, world!');
-console.log(result);
+namecrement('image', ['photo', 'image', 'image (1)', 'image (2)']);
+// → 'image (3)'
+
+namecrement('new', []);
+// → 'new'
 ```
-
----
-
-## 🤝 Contributions
-
-Contributions are welcome! Feel free to:
-
-1. Fork the repository
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-Please follow existing coding styles and clearly state your changes in the pull request.
-
----
-
-## 🐞 Issues
-
-If you encounter any issue, please open an issue [here](https://github.com/HichemTab-tech/Namecrement/issues).
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See [`LICENSE`](LICENSE) file for more details.
-
-&copy; 2025 [Hichem Taboukouyout](mailto:hichem.tab2002@gmail.com)
-
----
-
-## ⭐️ Support
-
-If you found this package helpful, consider leaving a star! ⭐️
-
----
-
-## 📣 Acknowledgments
-
-Acknowledgments and thanks to:
-
-- Mention any useful inspiration, references, or external resources here if applicable.
+MIT License © 2025 Hichem Taboukouyout

@@ -5,7 +5,6 @@
     "target": "ES2022",
     "module": "ES2022",
     "moduleResolution": "bundler",
-    "jsx": "react-jsx", // Enable React JSX transformation
     "allowJs": true, // Allow imports of JavaScript files
     "declaration": true, // Generate `.d.ts` files
     "declarationDir": "dist", // Output directory for types
