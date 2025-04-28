@@ -4,14 +4,14 @@
  * smallest positive integer that makes the name unique among existingNames.
  *
  * If the proposedName already ends with " (x)", x is treated as part of the base
- * name for uniqueness checks (so generateUniqueName("file (1)", ["file", "file (1)"])
+ * name for uniqueness checks (so namecrement("file (1)", ["file", "file (1)"])
  * → "file (2)").
  *
  * @param {string} proposedName
  * @param {string[]} existingNames
  * @returns {string} a unique name not in existingNames
  */
-export function generateUniqueName(proposedName: string, existingNames: string[]): string {
+export function namecrement(proposedName: string, existingNames: string[]): string {
     // Escape RegExp-special characters in a string
     const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
