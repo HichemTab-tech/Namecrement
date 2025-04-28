@@ -15,8 +15,8 @@
     "auto-increment",
     "utility"
   ],
-  "main": "dist/main.js",
-  "module": "dist/main.esm.js",
+  "main": "dist/namecrement.js",
+  "module": "dist/namecrement.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "vite build",
