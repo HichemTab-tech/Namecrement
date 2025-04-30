@@ -2,15 +2,19 @@ import { defineConfig } from 'vite';
 import banner from 'vite-plugin-banner';
 import { resolve } from 'path';
 import dts from 'vite-plugin-dts';
+import { readFileSync } from 'fs';
 
 
-const bannerContent = `/*!
-* namecrement v1.0.0
+let bannerContent = `/*!
+* namecrement v%VERSION%
 * (c) Hichem Taboukouyout
 * Released under the MIT License.
 * Github: github.com/HichemTab-tech/Namecrement
 */
    `;
+
+const packageJson = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf-8'));
+bannerContent = bannerContent.replace('%VERSION%', packageJson.version);
 
 export default defineConfig({
     build: {

@@ -3,7 +3,7 @@
 <p align="center">
 
 ![Tests](https://github.com/HichemTab-tech/Namecrement/workflows/Test/badge.svg) 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/HichemTab-tech/Namecrement/releases) [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/HichemTab-tech/Namecrement/blob/main/LICENSE)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/HichemTab-tech/Namecrement/releases) [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/HichemTab-tech/Namecrement/blob/main/LICENSE)
 [![NPM Version](https://img.shields.io/npm/v/namecrement.svg)](https://www.npmjs.com/package/namecrement)
 
 </p>
@@ -57,14 +57,45 @@ console.log(newName); // Output: "file (3)"
 
 ---
 
+## 🧠 Advanced Usage
+
+```ts
+namecrement('file', ['file', 'file -1-', 'file -2-'], ' -%N%-');
+// → 'file -3-'
+```
+
+You can customize how numbers are added by using the `%N%` placeholder in a `suffixFormat`:
+
+| Format Example    | Output             |
+|-------------------|--------------------|
+| `" (%N%)"`        | `file (1)`         |
+| `"-%N%"`          | `file-1`           |
+| `"_v%N%"`         | `file_v1`          |
+| `"<%N%>"`         | `file<1>`          |
+
+---
+
+### ✅ Type-Safe Format
+
+> `suffixFormat` must include the `%N%` placeholder, or the function will throw an error.
+
+This ensures that all generated names include the incremented number in the format you define.
+
+```ts
+namecrement('log', ['log', 'log_1'], '_%N%_'); // → log_2
+```
+
+---
+
 ## 📚 API
 
 ### `namecrement(baseName: string, existingNames: string[]): string`
 
-| Parameter       | Type       | Description                        |
-|-----------------|------------|------------------------------------|
-| `baseName`      | `string`   | The proposed name                  |
-| `existingNames` | `string[]` | The list of names to check against |
+| Parameter       | Type       | Description                                    |
+|-----------------|------------|------------------------------------------------|
+| `baseName`      | `string`   | The proposed name                              |
+| `existingNames` | `string[]` | The list of names to check against             |
+| `suffixFormat`  | `string`   | The format for the incremented name (optional) |
 
 Returns a **unique** name based on the proposed one.
 
@@ -81,6 +112,9 @@ namecrement('image', ['photo', 'image', 'image (1)', 'image (2)']);
 
 namecrement('new', []);
 // → 'new'
+
+namecrement('document', ['document', 'document -1-', 'document (2)'], ' -%N%-');
+// → 'document -2-'
 ```
 
 ---
