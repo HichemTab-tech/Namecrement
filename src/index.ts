@@ -9,24 +9,30 @@
  *
  * @param {string} proposedName
  * @param {string[]} existingNames
+ * @param {`${string}%N%${string}`} suffixFormat - Pattern for suffix, default: " (%N%)"
  * @returns {string} a unique name not in existingNames
  */
-export function namecrement(proposedName: string, existingNames: string[]): string {
+export function namecrement(proposedName: string, existingNames: string[], suffixFormat: `${string}%N%${string}` = " (%N%)"): string {
+    if (!suffixFormat.includes('%N%')) {
+        throw new Error('suffixFormat must contain "%N%"');
+    }
+
     // Escape RegExp-special characters in a string
     const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
     // Detect if the proposed name already ends with " (number)"
-    const suffixRe = /(.*) \((\d+)\)$/;
+    const formatRegex = escapeRegExp(suffixFormat).replace('%N%', '(\\d+)');
+    const suffixRe = new RegExp(`(.*)${escapeRegExp(suffixFormat).replace('%N%', '(\\d+)')}$`);
     let base = proposedName;
     if (suffixRe.test(proposedName)) {
         base = proposedName.replace(suffixRe, '$1'); // drop the "(n)" for matching
     }
 
     // Build a regex to match exactly "base" or "base (number)"
-    const matcher = new RegExp(`^${escapeRegExp(base)}(?: \\((\\d+)\\))?$`);
+    const matcher = new RegExp(`^${escapeRegExp(base)}${formatRegex}$|^${escapeRegExp(base)}$`);
 
     // Collect all used suffix numbers; 0 means the bare base is taken
-    const used = new Set();
+    const used = new Set<number>();
     for (const name of existingNames) {
         const m = name.match(matcher);
         if (m) {
@@ -45,5 +51,5 @@ export function namecrement(proposedName: string, existingNames: string[]): stri
     while (used.has(counter)) {
         counter++;
     }
-    return `${base} (${counter})`;
+    return base + suffixFormat.replace('%N%', String(counter));
 }
