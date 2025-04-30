@@ -69,7 +69,7 @@ describe('Suffix format validation', () => {
     it('should throw if suffix format does not include %N%', () => {
         // @ts-ignore
         expect(() => namecrement('file', [], ' -X-')).toThrowError(
-            /suffixFormat must include %N%/
+            "suffixFormat must contain \"%N%\""
         );
     });
 });
