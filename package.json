@@ -1,6 +1,6 @@
 {
   "name": "namecrement",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "description": "A smart JavaScript utility that generates unique incremental names, preventing naming collisions by automatically appending incremental suffixes.",
   "keywords": [
@@ -21,10 +21,6 @@
   "scripts": {
     "build": "vite build",
     "test": "vitest"
-  },
-  "peerDependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
   },
   "author": "Hichem Taboukouyout <hichem.tab2002@gmail.com>",
   "repository": {
