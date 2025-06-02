@@ -26,7 +26,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '23.x'  # Ensure you're using Node.js 22.x
-          cache: 'pnpm'
 
       - name: Install pnpm
         run: npm install -g pnpm
