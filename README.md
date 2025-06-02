@@ -3,7 +3,7 @@
 <p align="center">
 
 ![Tests](https://github.com/HichemTab-tech/Namecrement/workflows/Test/badge.svg) 
-[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](https://github.com/HichemTab-tech/Namecrement/releases) [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/HichemTab-tech/Namecrement/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/HichemTab-tech/Namecrement/blob/main/LICENSE)
 [![NPM Version](https://img.shields.io/npm/v/namecrement.svg)](https://www.npmjs.com/package/namecrement)
 
 </p>
