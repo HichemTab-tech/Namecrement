@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/HichemTab-tech/Namecrement#readme",
   "devDependencies": {
-    "@types/node": "^22.15.3",
+    "@types/node": "^24.0.1",
     "typescript": "^5.8.3",
     "vite": "^6.3.3",
     "vite-plugin-banner": "^0.8.1",
