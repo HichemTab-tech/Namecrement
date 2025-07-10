@@ -91,11 +91,12 @@ namecrement('log', ['log', 'log_1'], '_%N%_'); // → log_2
 
 ### `namecrement(baseName: string, existingNames: string[]): string`
 
-| Parameter       | Type       | Description                                    |
-|-----------------|------------|------------------------------------------------|
-| `baseName`      | `string`   | The proposed name                              |
-| `existingNames` | `string[]` | The list of names to check against             |
-| `suffixFormat`  | `string`   | The format for the incremented name (optional) |
+| Parameter        | Type                  | Description                                               |
+|------------------|-----------------------|-----------------------------------------------------------|
+| `baseName`       | `string`              | The proposed name                                         |
+| `existingNames`  | `string[]`            | The list of names to check against                        |
+| `suffixFormat`   | `string`              | The format for the incremented name (optional)            |
+| `startingNumber` | `number \| undefined` | The starting number for incrementing (default: undefined) |
 
 Returns a **unique** name based on the proposed one.
 
@@ -115,6 +116,9 @@ namecrement('new', []);
 
 namecrement('document', ['document', 'document -1-', 'document (2)'], ' -%N%-');
 // → 'document -2-'
+
+namecrement('file', [], ' (%N%)', 5);
+// → 'file (5)'
 ```
 
 ---
