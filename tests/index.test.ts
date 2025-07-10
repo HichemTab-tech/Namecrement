@@ -60,6 +60,48 @@ describe('namecrement (custom suffix format)', () => {
     });
 });
 
+describe('namecrement with startingNumber option', () => {
+    it('starts numbering from startingNumber if base name is available', () => {
+        const result = namecrement('file', [], ' (%N%)', 2);
+        expect(result).toBe('file (2)');
+    });
+
+    it('starts numbering from startingNumber even if base name is taken', () => {
+        const result = namecrement('file', ['file'], ' (%N%)', 2);
+        expect(result).toBe('file (2)');
+    });
+
+    it('finds the next available number from startingNumber', () => {
+        const result = namecrement('file', ['file', 'file (2)'], ' (%N%)', 2);
+        expect(result).toBe('file (3)');
+    });
+
+    it('handles startingNumber of 0', () => {
+        const result = namecrement('file', [], ' (%N%)', 0);
+        expect(result).toBe('file (0)');
+    });
+
+    it('handles startingNumber of 0 when base name is taken', () => {
+        const result = namecrement('file', ['file (0)'], ' (%N%)', 0);
+        expect(result).toBe('file (1)');
+    });
+
+    it('ignores startingNumber when proposed name is unique and no starting number is passed', () => {
+        const result = namecrement('file', ['file (1)']);
+        expect(result).toBe('file');
+    });
+
+    it('uses startingNumber when proposed name is unique but a starting number is passed', () => {
+        const result = namecrement('file', ['file (1)'], ' (%N%)', 5);
+        expect(result).toBe('file (5)');
+    });
+
+    it('handles a scenario where startingNumber is occupied', () => {
+        const result = namecrement('file', ['file (5)'], ' (%N%)', 5);
+        expect(result).toBe('file (6)');
+    });
+});
+
 describe('Suffix format validation', () => {
     it('should allow valid suffix formats with %N%', () => {
         const result = namecrement('file', [], ' -%N%-');

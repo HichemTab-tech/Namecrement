@@ -10,9 +10,15 @@
  * @param {string} proposedName
  * @param {string[]} existingNames
  * @param {`${string}%N%${string}`} suffixFormat - Pattern for suffix, default: " (%N%)"
+ * @param startingNumber - Optional starting number for the suffix, defaults to 1.
  * @returns {string} a unique name not in existingNames
  */
-export function namecrement(proposedName: string, existingNames: string[], suffixFormat: `${string}%N%${string}` = " (%N%)"): string {
+export function namecrement(
+    proposedName: string,
+    existingNames: string[],
+    suffixFormat: `${string}%N%${string}` = " (%N%)",
+    startingNumber?: number
+): string {
     if (!suffixFormat.includes('%N%')) {
         throw new Error('suffixFormat must contain "%N%"');
     }
@@ -42,12 +48,12 @@ export function namecrement(proposedName: string, existingNames: string[], suffi
     }
 
     // If the base itself isn't used, return it straightaway (even if the proposedName had "(n)")
-    if (!used.has(0)) {
+    if (!used.has(0) && startingNumber === undefined) {
         return base;
     }
 
     // Otherwise, find the smallest positive integer not in the set
-    let counter = 1;
+    let counter = startingNumber??1;
     while (used.has(counter)) {
         counter++;
     }
