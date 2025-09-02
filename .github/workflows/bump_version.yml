@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Use PackBumpPR
-        uses: HichemTab-tech/PackBumpPR@6d46157a24994171b6d12dd9328878d62872163f
+        uses: HichemTab-tech/PackBumpPR@f60b4ef884a10139a9e18bea488e2efed78a4e32
         with:
           version_increment: ${{ github.event.inputs.version_increment }}
           custom_version: ${{ github.event.inputs.custom_version }}
