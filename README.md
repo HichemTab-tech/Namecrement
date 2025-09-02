@@ -25,7 +25,8 @@ like `"file"` → `"file (1)"`, `"file (2)"`, and so on.
 
 ### 📦 Also Available
 
-> Need it for PHP? Check out [Namecrement for PHP](https://github.com/HichemTab-tech/Namecrement-php)!
+* PHP: [Namecrement-php](https://github.com/HichemTab-tech/Namecrement-php)
+* Python: [Namecrement-py](https://github.com/HichemTab-tech/Namecrement-py)
 
 ## 📦 Installation
 
